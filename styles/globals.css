@@ -1591,6 +1591,7 @@ nav.sticky .mobile svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: capitalize;
 }
 
 .movietitle h1 {

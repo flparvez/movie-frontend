@@ -10,10 +10,14 @@ import 'swiper/css/pagination'
 import {Pagination,Navigation,Autoplay} from 'swiper/modules'
 import Loader from "@/components/Loader";
 import Link from "next/link";
-import { FaAngleDoubleUp, FaDownload, FaEye, FaFilm, FaHeart, FaPlus, FaStar } from "react-icons/fa";
+import { FaAngleDoubleUp, FaArrowRight, FaCheck, FaDownload, FaEye, FaFilm, FaHeart, FaPhotoVideo, FaPlus, FaStar } from "react-icons/fa";
+import { FaClapperboard } from "react-icons/fa6";
 
 
 export default function Home() {
+
+  const genres =['all movies','action','adventure','romance','comedy','horror','thriller','science_fiction']
+  const categories = ["bollywood","hollywood","south","sarvel_studio","turkie","tv_show","seb_series",]
 // fetch data useHook
 const {alldata,loading} = useFetchData('/api/getmovies');
 const [wloading, setWloading] = useState(true);
@@ -21,7 +25,30 @@ const [wloading, setWloading] = useState(true);
   // filter for publish movies required
   const publishedMovies = alldata.filter(movie => movie.status === 'publish');
   // filter genre
-  const [selectedGenre, setSelectedGenre] = useState('All Movies');
+  const [selectedGenre, setSelectedGenre] = useState('all movies');
+
+// filtered movies
+
+ const filteredMovies = publishedMovies.filter(movie =>{
+    if (selectedGenre === 'all movies')  return true;
+
+    if (categories.includes(selectedGenre)) {
+      return movie.category === selectedGenre;
+    }else {
+      return movie.genre.includes(selectedGenre);
+    }
+ })
+
+
+
+
+  // handelgenreclick
+
+  const handleGenreClick = (genre) => {
+    setSelectedGenre(genre);
+  } 
+  
+
   return (
 
 
@@ -98,7 +125,7 @@ const [wloading, setWloading] = useState(true);
           </div>
                     <div className="scrollcardssec">
                       <Swiper 
-                      slidesPerView={7}
+                      slidesPerView={8}
                       spaceBetween={10}
                       className="myswiper"
                       autoplay={{
@@ -192,12 +219,73 @@ const [wloading, setWloading] = useState(true);
                     </div>
 
                     <div className="tranding_bx " style={{marginTop: '40px'}}>
-                    <li> <Link href='/all' className="active"><i><FaAngleDoubleUp className="fas"/> </i>Latest</Link> </li>
-                    <li> <Link href='/movies' > <i><FaFilm className="fas"/> </i>Movies</Link> </li>
-                    <li> <Link href='/series' ><i><FaStar className="fas"/> </i>Series</Link> </li>
-                    <li> <Link href='/all' > <i><FaPlus className="fas"/> </i>Recently Added</Link> </li>
+                    <li> <Link href='/movies' ><i><FaPhotoVideo className="fas"/> </i>Movies</Link> </li>
+                    <li> <Link href='/series' > <i><FaFilm className="fas"/> </i>Series</Link> </li>
+                    <li> <Link href='/series' ><i><FaCheck className="fas"/> </i>Orgianl Series</Link> </li>
+                    <li> <Link href='/genre' > <i><FaClapperboard className="fas"/> </i>Genre</Link> </li>
           </div>
 
+                         <div className="moviestegs">
+                          {/* Maping Over The Genre */}
+                          {
+                            genres.slice(0,16).map(genre => (
+                              <button className={selectedGenre === genre ? 'active' : ''} key={genre} onClick={()=> handleGenreClick(genre)} >
+                                {genre}
+                              </button>
+                            ))
+                          }
+
+                          {
+                            categories.map(category => (
+                              <button className={selectedGenre === category ? 'active' : ''} key={category} onClick={()=> handleGenreClick(category)} >
+                              {category}
+                            </button>
+                            ))
+                          }
+                         </div>
+
+                          <div className="moviescontainer">
+                            { loading ? <div className="scrollcardssec flex flex-center"> <Loader/> </div> : <>
+                            
+                            {filteredMovies.length === 0 ? <p className="nodatafound">No Movie Found</p> : <> 
+                            
+                            {filteredMovies.map((movie)=>(
+                              <div className="card" key={movie._id}>
+
+                            <Link href={`/movies/${movie.slug}`}>
+                                <div className="cardimg">
+                                <img src={movie.smposter} alt={movie.title} loading="lazy" />
+                                </div>
+                            
+                              <div className="contents">
+                                <h5>{movie.title}</h5>
+                                <h6>
+                                  <span>{movie.year}</span>
+                                  <div className="rate">
+                                    <i className="cardfs"> <FaHeart /> </i>
+                                    <i className="cardfs"> <FaEye /> </i>
+                                    <i className="cardfs"> <FaStar /> </i>
+                                    <h6>{movie.rating}</h6>
+                                  </div>
+                                </h6>
+                                
+                              </div>
+                              
+                              </Link>
+                              </div>
+                            ))}
+                             </> }
+                            </>}
+                          </div>
+                          <div className="nextpagelink">
+
+                            <Link href='/all'>
+                            <button className="cssbuttons_io_button">Next Page  <div className="icon">
+                              <FaArrowRight />
+                            </div></button>
+                           
+                            </Link>
+                          </div>
         </div>  
 
 
