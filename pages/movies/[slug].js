@@ -142,7 +142,11 @@ const publishMovies = alldata.filter(ab => ab.status === 'publish');
            <div className='downloadlinks'>
                 <a target='_blank' href={alldata && alldata[0]?.downloadlink['480p']}>Terabox Download Link</a>
                 <a target='_blank' href={alldata && alldata[0]?.downloadlink['720p']}>Direct Download</a>
-                <a target='_blank' href={alldata && alldata[0]?.downloadlink['1080p']}>Download 1080p</a>
+                
+                <Link href={alldata && alldata[0]?.downloadlink['1080p'] || '/fallback-url'}>
+                  Direct Link 2
+             </Link>
+               
            </div>
         </section>
     </div>
