@@ -140,8 +140,8 @@ const publishMovies = alldata.filter(ab => ab.status === 'publish');
         <section className='downloadsec'>
     <h2>Download Links</h2>
            <div className='downloadlinks'>
-                <a target='_blank' href={alldata && alldata[0]?.downloadlink['480p']}>Download 480p</a>
-                <a target='_blank' href={alldata && alldata[0]?.downloadlink['720p']}>Download 720p</a>
+                <a target='_blank' href={alldata && alldata[0]?.downloadlink['480p']}>Terabox Download Link</a>
+                <a target='_blank' href={alldata && alldata[0]?.downloadlink['720p']}>Direct Download</a>
                 <a target='_blank' href={alldata && alldata[0]?.downloadlink['1080p']}>Download 1080p</a>
            </div>
         </section>
@@ -149,7 +149,7 @@ const publishMovies = alldata.filter(ab => ab.status === 'publish');
 
     <div className='youtubeiframe'>
         <h3 id='movietrailer' className='uppercase'>{alldata && alldata[0]?.titlecategory} Trailer: </h3>
-        <iframe width="100%" height="370" src={alldata && alldata[0]?.ytlink} frameborder="0"></iframe>
+        <iframe width="100%" height="370" src={alldata && alldata[0]?.ytlink} frameBorder="0"></iframe>
     </div>
 
     </div>

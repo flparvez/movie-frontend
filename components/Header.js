@@ -52,6 +52,7 @@ const handleNavbarClose =()=>{
 // searchbar
 const handleSearchbarOpen =()=>{
     setSearchbar(!searchbar)
+    
 }
 const handleSearchbarClose =()=>{
     setSearchbar(false)
@@ -81,12 +82,14 @@ const handleSearchbarClose =()=>{
             const filteredMovie = publishedMovies.filter(movie => movie.title.toLowerCase().includes(movieShortName.toLowerCase()))
 
             setSearchResult(filteredMovie);
+           
 
             }, [movieShortName]);
             
                 // handle MovieCLick
                 const handleMovieClick = () => {
                     setMovieShortName('');
+                    setSearchbar(false)
                 }
 
             // handle search bar
@@ -97,6 +100,7 @@ const handleSearchbarClose =()=>{
             const handleOutsideClick = (event) => {
                 if (searchRef.current &&!searchRef.current.contains(event.target)) {
                     setMovieShortName('')
+                    setSearchbar(false)
                 }
             }
             useEffect(() => {
@@ -112,7 +116,7 @@ const handleSearchbarClose =()=>{
   return (
     <>
       <nav className="header">
-            <h1 className="logo" data-text="&nbsp;Makmovies&nbsp;" > <a href="/"></a>&nbsp;Makmovies&nbsp;</h1>
+           <Link href="/"> <h1 className="logo" data-text="&nbsp;Makmovies&nbsp;" > &nbsp;Makmovies&nbsp;</h1> </Link>
             <form className={searchbar ? "search_bar active" : "search_bar"}>
                 <input type="text" placeholder="search movies" value={movieShortName} onChange={(e)=> setMovieShortName(e.target.value)} />
                 <div className="searchclose" onClick={handleSearchbarClose}>

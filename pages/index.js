@@ -17,7 +17,7 @@ import { FaClapperboard } from "react-icons/fa6";
 export default function Home() {
 
   const genres =['all movies','action','adventure','romance','comedy','horror','thriller','science_fiction']
-  const categories = ["bollywood","hollywood","south","sarvel_studio","turkie","tv_show","seb_series",]
+  const categories = ["bollywood","hollywood","south","marvel_studio","turkie","tv_show","web_series",]
 // fetch data useHook
 const {alldata,loading} = useFetchData('/api/getmovies');
 const [wloading, setWloading] = useState(true);
