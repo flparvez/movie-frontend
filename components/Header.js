@@ -116,7 +116,7 @@ const handleSearchbarClose =()=>{
   return (
     <>
       <nav className="header">
-           <Link href="/"> <h1 className="logo" data-text="&nbsp;Makmovies&nbsp;" > &nbsp;Makmovies&nbsp;</h1> </Link>
+           <Link href="/"> <h1 className="logo" data-text="&nbsp;Makmovies&nbsp;" > &nbsp;Flpmovies&nbsp;</h1> </Link>
             <form className={searchbar ? "search_bar active" : "search_bar"}>
                 <input type="text" placeholder="search movies" value={movieShortName} onChange={(e)=> setMovieShortName(e.target.value)} />
                 <div className="searchclose" onClick={handleSearchbarClose}>
@@ -167,7 +167,7 @@ const handleSearchbarClose =()=>{
 
                     <li> <Link href='/bollywood' className={activeLink ==="/bollywood" ? 'active' : ''} onClick={() => hadnleClick('/bollywood')} >Bollywood </Link>
                     
-                     </li>  <li> <Link href='/hollywood' className={activeLink ==="/hollywood" ? 'active' : ''} onClick={() => hadnleClick('/hollywood')} >Hollywood </Link> </li>
+                     </li>  <li> <Link href='/bangla' className={activeLink ==="/bangla" ? 'active' : ''} onClick={() => hadnleClick('/bangla')} >Bangla </Link> </li>
 
   <li> <Link href='/series' className={activeLink ==="/series" ? 'active' : ''} onClick={() => hadnleClick('/series')} >Series </Link> </li>
   <li> <Link href='/contact' className={activeLink ==="/contact" ? 'active' : ''} onClick={() => hadnleClick('/contact')} >Contact </Link> </li>

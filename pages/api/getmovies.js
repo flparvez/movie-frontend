@@ -32,7 +32,14 @@ if (method === "GET") {
         // fetch movies by category
         const category = await Movie.find({category: req.query.category});
         res.json(category.reverse());
-    } else if (req.query?.slug){
+    
+    } else if (req.query?.language) {
+// fetch movies by language
+const language = await Movie.find({language: req.query.language});
+res.json(language.reverse());
+
+
+ }else if (req.query?.slug){
         // fetch single movie by slug
         const slug = await Movie.find({slug: req.query.slug});
         res.json(slug)

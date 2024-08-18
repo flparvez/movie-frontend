@@ -6,25 +6,25 @@ import Link from "next/link";
 import { FaEye, FaHeart, FaStar } from "react-icons/fa";
 import { SwiperSlide } from "swiper/react";
 
-export default function movies() {
+export default function bangla() {
 // fetch data
 const {alldata,loading} = useFetchData('/api/getmovies');
 
 // filter for publish movies required
 const publishedMovies = alldata.filter(movie => movie.status === 'publish');
 // filter data by movies
+const BanglaData = publishedMovies.filter(movie => movie.language === 'Bangla');
 
-// console.log(moviesData)
-
+console.log(publishedMovies)
     return <>
         <Head>
-            <title>All Movie and Series | Flpmovie</title>
+            <title>All Bangla Movie | Flpmovie</title>
             <meta name="description" content="All the movies" />
         </Head>
         <section className="genrenamesec">
             <div className="genrename">
-                <h1> All Movies and Series</h1>
-                <p>Exclusive movies Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit adipisci natus unde.</p>
+                <h1>Bangla</h1>
+                <p>Exclusive hollywood movies Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit adipisci natus unde.</p>
 
             </div>
         </section>
@@ -33,7 +33,7 @@ const publishedMovies = alldata.filter(movie => movie.status === 'publish');
             
                          {   loading ? <div className="scrollcardssec flex flex-center"> <Loader/> </div> : <>
                          
-                         {publishedMovies.map((movie)=>{
+                         {BanglaData.map((movie)=>{
                           return <SwiperSlide  key={movie._id}>
                             <div className="card">
                               <Link href={`/movies/${movie.slug}`}>
