@@ -143,7 +143,7 @@ const {alldata,loading} =useFetchData(`/api/getmovies?slug=${slug}`);
                 <a target='_blank' href={alldata && alldata[0]?.downloadlink['720p']}>Direct Download</a>
                 
                 <Link href={alldata && alldata[0]?.downloadlink['1080p'] || '/fallback-url'}>
-                  Direct Link 2
+                Bangla Dubbed
              </Link>
                
            </div>
