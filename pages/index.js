@@ -54,7 +54,7 @@ const [wloading, setWloading] = useState(true);
 
     <>
       <Head>
-        <title>Movie App | flparvez</title>
+        <title>Flpmovie | flparvez</title>
         <meta name="description" content="Next Js Movie App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -129,7 +129,7 @@ const [wloading, setWloading] = useState(true);
                       spaceBetween={10}
                       className="myswiper"
                       autoplay={{
-                        delay:3000,
+                        delay:2000,
                         disableOnInteraction:false,
                       }}
                       direction="horizontal"

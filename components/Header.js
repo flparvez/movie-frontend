@@ -116,7 +116,7 @@ const handleSearchbarClose =()=>{
   return (
     <>
       <nav className="header">
-           <Link href="/"> <h1 className="logo" data-text="&nbsp;Makmovies&nbsp;" > &nbsp;Flpmovies&nbsp;</h1> </Link>
+           <Link href="/"> <h1 className="logo" data-text="&nbsp;Flpmovies&nbsp;" > &nbsp;Flpmovies&nbsp;</h1> </Link>
             <form className={searchbar ? "search_bar active" : "search_bar"}>
                 <input type="text" placeholder="search movies" value={movieShortName} onChange={(e)=> setMovieShortName(e.target.value)} />
                 <div className="searchclose" onClick={handleSearchbarClose}>

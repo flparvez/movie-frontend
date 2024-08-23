@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import useFetchData from '@/hooks/useFetchData';
 import { FaBookmark, FaCheck, FaImdb, FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
 import { FaShareFromSquare } from 'react-icons/fa6';
+import Loader from '@/components/Loader';
 
 export default function moviesPost() {
 const router = useRouter();
@@ -12,20 +13,18 @@ const {slug} =router.query;
 
 // use hooks
 const {alldata,loading} =useFetchData(`/api/getmovies?slug=${slug}`);
-const {allmovie} = useFetchData(`/api/getmovies`);
- 
-// filter publish movies
 
-const publishMovies = alldata.filter(ab => ab.status === 'publish');
 
 
     return <>
+     {loading? <div className="scrollcardssec flex flex-center"> <Loader/> </div> : 
         <>
             <Head>
                 <title>{alldata && alldata[0]?.slug.replaceAll('-',' ')}</title>
             </Head>
           <div>
 
+        
             <div className="slideimagebx">
                 <img src={alldata && alldata[0]?.bgposter} alt="Movie" loading='lazy' />
             </div>
@@ -160,9 +159,13 @@ const publishMovies = alldata.filter(ab => ab.status === 'publish');
 
 
                     </div>
+
+          
                 </div>
-           
+
         
         </>
+}
     </>
+     
 }
