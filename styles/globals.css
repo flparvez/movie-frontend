@@ -880,7 +880,7 @@ nav.sticky .mobile svg {
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   */
 
 .moviescontainer {
-    margin: 0 30px;
+    /* margin: 0 30px; */
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
