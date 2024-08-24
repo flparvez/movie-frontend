@@ -693,10 +693,11 @@ nav.sticky .mobile svg {
 /* *************************** card scroll   */
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   */
 .scrollcardssec {
-    margin: 0 20px;
+    margin: 0 15px;
     margin-top: 20px;
     width: 100%;
 }
+
 
 .scrollcards {
     display: flex;
@@ -880,8 +881,8 @@ nav.sticky .mobile svg {
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   */
 
 .moviescontainer {
-    margin: 0 20px;
-    margin-top: 50px;
+    margin:  auto;
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

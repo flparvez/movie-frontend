@@ -164,11 +164,11 @@ const [wloading, setWloading] = useState(true);
                             spaceBetween:10
                           },
                             650:{
-                            slidesPerView:4,
+                            slidesPerView:3,
                             spaceBetween:10
                           },
                             400:{
-                            slidesPerView:3,
+                            slidesPerView:2,
                             spaceBetween:10
                           },     370:{
                             slidesPerView:2,
