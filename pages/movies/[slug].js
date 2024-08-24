@@ -130,6 +130,12 @@ const {alldata,loading} =useFetchData(`/api/getmovies?slug=${slug}`);
                 </tbody>
             </table>
         </article>
+   
+
+
+
+
+
         <article>
             <div className='storyline'>
                 <h3>Sunopis / Storyline:</h3>
